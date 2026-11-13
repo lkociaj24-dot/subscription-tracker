@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subscription Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="ui-header"><h1>Subscription Tracker</h1></header>
+
+  <main class="ui-container">
+
+    <!-- TABS -->
+    <nav class="ui-tabs">
+      <button class="ui-tab ui-tab-active" data-tab="form-section">Form</button>
+      <button class="ui-tab" data-tab="table-section">Table</button>
+      <button class="ui-tab" data-tab="summary-section">Summary</button>
+    </nav>
+
+    <!-- TAB 1: FORM -->
+    <section id="form-section" class="ui-card">
+      <h2>Add subscription</h2>
+      <form id="sub-form" class="ui-form">
+        <label class="ui-field">Service
+          <input class="ui-input" type="text" id="service" required>
+        </label>
+        <label class="ui-field">Provider
+          <input class="ui-input" type="text" id="provider" required>
+        </label>
+        <label class="ui-field">Subscriber
+          <input class="ui-input" type="text" id="subscriber" required>
+        </label>
+        <label class="ui-field">Renewal date
+          <input class="ui-input" type="date" id="renewal" required>
+        </label>
+        <label class="ui-field">Category
+          <select class="ui-input" id="category" required>
+            <option value="">Choose...</option>
+            <option>Entertainment</option>
+            <option>Software</option>
+            <option>Education</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <button class="ui-btn" type="submit">Add</button>
+      </form>
+    </section>
+
+    <!-- TAB 2: TABLE -->
+    <section id="table-section" class="ui-card ui-hidden">
+      <h2>All subscriptions</h2>
+      <div class="ui-table-wrap">
+        <table class="ui-table">
+          <thead>
+            <tr>
+              <th>Service</th><th>Provider</th><th>Subscriber</th>
+              <th>Renewal date</th><th>Category</th><th>Status</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 3: SUMMARY -->
+    <section id="summary-section" class="ui-card ui-hidden">
+      <h2>Summary</h2>
+      <div class="ui-stats">
+        <div class="ui-stat">Total subscriptions
+          <div class="ui-stat-number" id="total-count">0</div>
+        </div>
+        <div class="ui-stat">Expired subscriptions
+          <div class="ui-stat-number" id="expired-count">0</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="lib/subscriptions-lib.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
